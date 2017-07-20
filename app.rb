@@ -1,7 +1,10 @@
 require 'redis'
 require 'slack-ruby-client'
+require 'dotenv'
 
 require_relative './lib/twitter_scraper'
+
+Dotenv.load
 
 redis = Redis.new
 
