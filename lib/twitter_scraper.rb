@@ -15,10 +15,14 @@ class TwitterScraper
     @since_id = since_id
   end
 
+  def client
+    self.class.client
+  end
+
   def tweets
     opts = {}
     opts[:since_id] = @since_id if @since_id
 
-    self.class.client.user_timeline(@name, opts)
+    client.user_timeline(@name, opts)
   end
 end
