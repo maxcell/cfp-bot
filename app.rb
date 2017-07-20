@@ -33,5 +33,5 @@ p cfps
 
 client = Slack::Web::Client.new(token: ENV.fetch('SLACK_API_TOKEN'))
 cfps.each do |cfp|
-  client.chat_postMessage(channel: '@eddie', text: cfp, as_user: true)
+  client.chat_postMessage(channel: ENV.fetch('SLACK_CHANNEL'), text: cfp, as_user: true)
 end
