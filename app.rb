@@ -31,7 +31,17 @@ end.compact
 
 redis.set('mozillatech_latest', mozillatech_tweets.first.id) unless mozillatech_tweets.empty?
 
-cfps = techspeakdigest_cfps + mozillatech_cfps
+cfptime = TwitterScraper.new('cfp_time', redis.get('cfptime_latest'))
+
+cfptime_tweets = cfptime.tweets
+
+cfptime_cfps = cfptime_tweets.map do |tweet|
+  tweet.text if /#cfp/i.match(tweet.text)
+end.compact
+
+redis.set('cfptime_latest', cfptime_tweets.first.id) unless cfptime_tweets.empty?
+
+cfps = techspeakdigest_cfps + mozillatech_cfps + cfptime_cfps
 p cfps
 
 client = Slack::Web::Client.new(token: ENV.fetch('SLACK_API_TOKEN'))
