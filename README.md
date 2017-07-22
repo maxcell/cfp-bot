@@ -8,6 +8,7 @@ get pushed out!
 
 - [Technically Speaking](https://twitter.com/techspeakdigest)
 - [Mozilla Tech CFPs](https://twitter.com/mozTechCFPs)
+- [CFPTime](https://twitter.com/cfp_time)
 
 ### Help out!
 Feel free to contribute any thing you know to help making the bot even better! Take a
